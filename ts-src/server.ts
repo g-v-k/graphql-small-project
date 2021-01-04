@@ -32,6 +32,11 @@ const apolloServer = new ApolloServer({
                 user:new Dataloader(keys=>loaders.user.batchUsers(keys))
             }
         }
+    },
+    formatError:(err)=>{
+        return{
+            message:err.message
+        };
     }
 })
 
